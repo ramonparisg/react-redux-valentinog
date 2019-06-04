@@ -2,17 +2,20 @@ import React from 'react';
 import {connect} from "react-redux";
 
 const mapStateToProps = state => {
-    return {articles: state.articles};
+    return {articles: state.articles, badWord: state.badWord};
 };
 
-const ConnectedList = ({articles}) => (
-    <ul className={"list-group list-group-flush"} >
-        {articles.map(el => (
-            <li className="list-group-item" key={el.id}>
-                {el.title}
-            </li>
-        ))}
-    </ul>
+const ConnectedList = ({articles, badWord}) => (
+    <div>
+        <ul className={"list-group list-group-flush"} >
+            {articles.map(el => (
+                <li className="list-group-item" key={el.id}>
+                    {el.title}
+                </li>
+            ))}
+        </ul>
+        {badWord && alert("Bad word!!!")}
+    </div>
 );
 
 const List = connect(mapStateToProps)(ConnectedList);
