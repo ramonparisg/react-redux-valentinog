@@ -14,7 +14,7 @@ const ConnectedList = ({articles, badWord}) => (
                 </li>
             ))}
         </ul>
-        {badWord && alert("Bad word!!!")}
+        {badWord > 0 && alert("Bad word!!!")}
     </div>
 );
 
